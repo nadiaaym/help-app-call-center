@@ -16,6 +16,7 @@ const useStyles = makeStyles({
 
 export default function SimpleTable(props) {
   const classes = useStyles();
+  const onSelected = props.onSelected;
 
   return (
     <TableContainer component={Paper}>
@@ -32,7 +33,7 @@ export default function SimpleTable(props) {
         </TableHead>
         <TableBody>
           {props.rows.map((row) => (
-            <TableRow key={row.name} onClick={() => console.log('row selected')}>
+            <TableRow key={row.id} onClick={() => onSelected(row)}>
               <TableCell component="th" scope="row">
                 {row.id}
               </TableCell>
